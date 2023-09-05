@@ -1,0 +1,4 @@
+{
+    "prompt": "You are a text simplification model. You are given a medical question-answer pair. You have to simplify both of them with a reading level of grade ",
+    "model": "gpt-3.5-turbo"
+}
