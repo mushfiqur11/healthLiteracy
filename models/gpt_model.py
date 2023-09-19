@@ -2,14 +2,15 @@ import openai
 import json
 
 def get_api_key():
-    with open("OPENAI_API_KEY", "r") as f:
+    gpt_gpt_config = get_gpt_config()
+    with open(gpt_gpt_config["key_path"], "r") as f:
         api_key = f.read()
     return api_key
 
 def get_gpt_config(path = "gpt_config.json", reading_level = 6):
     with open(path, "r") as f:
         gpt_config = json.load(f)
-    gpt_config["prompt"] = f'{gpt_config["prompt"]} {reading_level}'
+    gpt_config["prompt"] = gpt_config[f"prompt{reading_level}"]
     return gpt_config
 
 def create_gpt_messages(samples=False, input_limit=10):
@@ -35,11 +36,11 @@ def add_task_prompt(messages, task_prompt):
     """
     This function adds the task sentence to the messages list
     """
-    content = ''
-    question, answer = task_prompt
-    content += f"Question: {question}\n"
-    content += f"Answer: {answer}\n"
-    messages.append({"role": "user", "content": content})
+    # content = ''
+    # question, answer = task_prompt
+    # content += f"Question: {question}\n"
+    # content += f"Answer: {answer}\n"
+    messages.append({"role": "user", "content": task_prompt})
     return messages
 
 def get_gpt_response(user_message, samples, gpt_config, input_limit=10, verbose=False):

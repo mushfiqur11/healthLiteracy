@@ -6,18 +6,19 @@ import pandas as pd
 
 import xml.etree.ElementTree as ET
 
-def read_config():
+def read_config(file):
     """Reads the config file and returns a dictionary."""
     config = {}
-    with open("config.json", "r") as f:
+    with open(file, "r") as f:
         config = json.load(f)
     return config
 
-def get_args(args):
+def get_args(args, file = 'config.json'):
     """Returns a dictionary of arguments."""
-    config = read_config()
-    args.add_argument('--xml_path', type=str, default=config['xml_path'])
-    args.add_argument('--age', type=int, default=config['age'])
+    config = read_config(file=file)
+    # args.add_argument('--xml_path', type=str, default=config['xml_path'])
+    # args.add_argument('--reading_level', type=int, default=config['reading_level'])
+    # args.add_argument('--output', type=str, default=config['output'])
 
     args = args.parse_args()
     for arg in vars(args):

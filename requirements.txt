@@ -3,3 +3,4 @@ lxml
 pandas
 openai
 tqdm
+py-readability-metrics

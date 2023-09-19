@@ -1,5 +1,7 @@
 {
-    "xml_path": "..\\data\\MedQuAD\\9_CDC_QA",
+    "xml_path": "../data/MedQuAD/1_CancerGov_QA",
     "name": "test",
-    "age": 12
+    "reading_level": 6,
+    "verbose": false,
+    "output": "../results/CancerGov_QA.csv"
 }

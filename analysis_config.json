@@ -1,0 +1,9 @@
+{
+    "result_files":
+        [
+            {"path":"../results/CancerGov_QA.csv", "name":"CancerGov"},
+            {"path":"../results/CDC_QA.csv", "name":"CDC"}
+        ],
+    "result_dir": "../results",
+    "output_directory": "../analysis"
+}
