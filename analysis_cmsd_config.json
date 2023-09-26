@@ -1,0 +1,9 @@
+{
+    "result_files":
+        [
+            {"path":"../results/c_msd_parallel_test.csv", "name":"c_msd_parallel_test"},
+            {"path":"../results/c_msd_train.csv", "name":"train"}
+        ],
+    "result_dir": "../results",
+    "output_directory": "../analysis"
+}

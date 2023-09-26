@@ -1,0 +1,8 @@
+{
+    "csv_path": "../data/c_msd/train.csv",
+    "name": "test",
+    "reading_level": 6,
+    "verbose": false,
+    "columns": ["text"],
+    "output": "../results/c_msd_train.csv"
+}

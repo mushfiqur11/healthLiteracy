@@ -2,16 +2,19 @@ import argparse
 from utils import get_args
 import pandas as pd
 import matplotlib.pyplot as plt
+from tqdm import tqdm
 
 def main(args):
     new_df = {}
 
-    for file in args.result_files:
+    for file in tqdm(args.result_files):
         file_path = file['path']
         file_name = file['name']
         df = pd.read_csv(file_path)
-        new_df[f"{file_name}_original"] = df['input_readability']
-        new_df[f"{file_name}_converted"] = df['output_readability']
+        for col in df.columns:
+            if 'readability' not in col:
+                continue
+            new_df[f"{file_name}_{col}"] = df[col]  
 
     new_df = pd.DataFrame.from_dict(new_df)
     
@@ -21,7 +24,7 @@ def main(args):
     plt.show()
 
 if __name__ == '__main__':
-    args = get_args(argparse.ArgumentParser(), file='analysis_config.json')
+    args = get_args(argparse.ArgumentParser(), file='analysis_cmsd_config.json')
     
 
     main(args)
