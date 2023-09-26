@@ -1,1 +1,4 @@
+accelerate==0.23.0
 hugchat==0.2.5
+torch==2.0.1
+transformers==4.33.2
